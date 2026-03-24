@@ -253,16 +253,16 @@ h3, h4 {
   flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.35rem;
-  margin-top: 5rem;
+  margin-top: 3.25rem;
   width: 100%;
   max-width: none;
   position: relative;
   z-index: 3;
   font-size: clamp(0.78rem, 1.35vw, 1.05rem);
   line-height: 1.35;
-  text-align: left;
+  text-align: center;
 }
 
 .hero-intro__meta li:not(:last-child)::after {
@@ -297,9 +297,9 @@ h3, h4 {
 
   .hero-intro__meta {
     max-width: 100%;
-    margin-top: 3.75rem;
-    justify-content: flex-start;
-    text-align: left;
+    margin-top: 2.5rem;
+    justify-content: center;
+    text-align: center;
     font-size: clamp(0.72rem, 2.8vw, 0.95rem);
     flex-wrap: wrap;
     row-gap: 0.35rem;
