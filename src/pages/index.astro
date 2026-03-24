@@ -9,7 +9,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="container">
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10">
+        <div class="col-6">
           <div class="animate">
             <h1 style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; max-width: 16ch; margin-bottom: 2rem;">
               Hi,<br />I'm Georgia<br />&amp; I do ML.
@@ -20,6 +20,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <li class="animate">ML engineer</li>
             </ul>
           </div>
+        </div>
+        <div class="col-4">
+          <figure class="animate" style="margin: 0; justify-self: end; max-width: 340px; width: 100%;">
+            <img
+              src="/photos/profile-pic.png"
+              alt="Portrait of Georgia Ray"
+              style="display: block; width: 100%; height: auto; border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 12px 28px color-mix(in oklch, var(--primary) 18%, transparent); object-fit: cover;"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
         </div>
       </div>
     </div>
