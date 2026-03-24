@@ -175,6 +175,45 @@ h3, h4 {
   overflow: visible;
 }
 
+/* Intro: logo wash behind hero — full strength at page left, fades through name, gone before photo */
+#intro.section--intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/photos/logo.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  /* Height drives scale; width follows aspect ratio — no non-uniform stretch */
+  background-size: auto min(135%, 56rem);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 6%,
+    rgba(0, 0, 0, 0.92) 14%,
+    rgba(0, 0, 0, 0.5) 34%,
+    rgba(0, 0, 0, 0.15) 48%,
+    transparent 58%
+  );
+  mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 6%,
+    rgba(0, 0, 0, 0.92) 14%,
+    rgba(0, 0, 0, 0.5) 34%,
+    rgba(0, 0, 0, 0.15) 48%,
+    transparent 58%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+#intro.section--intro .container {
+  position: relative;
+  z-index: 1;
+}
+
 .section::after {
   content: "";
   position: absolute;
@@ -198,7 +237,16 @@ h3, h4 {
   isolation: isolate;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+.hero-intro__banner {
+  display: flex;
+  flex-direction: column;
   align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .hero-intro__row {

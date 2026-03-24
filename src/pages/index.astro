@@ -11,26 +11,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="col-2"></div>
         <div class="col-10">
           <div class="animate hero-intro">
-            <div class="hero-intro__row">
-              <h1 class="hero-intro__text" style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; margin: 0;">
-                Georgia<br />Ray
-              </h1>
-              <div class="hero-intro__aside">
-                <figure class="hero-intro__photo" style="margin: 0;">
-                  <img
-                    src="/photos/prof-pic-recolored.jpeg"
-                    alt="Portrait of Georgia Ray"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </figure>
+            <div class="hero-intro__banner">
+              <div class="hero-intro__row">
+                <h1 class="hero-intro__text" style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; margin: 0;">
+                  Georgia<br />Ray
+                </h1>
+                <div class="hero-intro__aside">
+                  <figure class="hero-intro__photo" style="margin: 0;">
+                    <img
+                      src="/photos/prof-pic-recolored.jpeg"
+                      alt="Portrait of Georgia Ray"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
               </div>
+              <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; color: var(--muted-foreground);">
+                <li>Machine learning engineer</li>
+                <li>Climate researcher</li>
+                <li>PhD student</li>
+              </ul>
             </div>
-            <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; color: var(--muted-foreground);">
-              <li>Machine learning engineer</li>
-              <li>Climate researcher</li>
-              <li>PhD student</li>
-            </ul>
           </div>
         </div>
       </div>
