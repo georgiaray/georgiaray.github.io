@@ -206,10 +206,10 @@ h3, h4 {
 
 .hero-intro__photo {
   position: absolute;
-  right: 0;
-  top: -3.25rem;
+  right: 7.5rem;
+  top: -2.6rem;
   z-index: 1;
-  width: clamp(220px, 30vw, 380px);
+  width: clamp(250px, 34vw, 430px);
   aspect-ratio: 1 / 1;
   border-radius: 9999px;
   overflow: hidden;
@@ -235,7 +235,7 @@ h3, h4 {
     position: relative;
     top: 0;
     right: auto;
-    width: clamp(180px, 52vw, 280px);
+    width: clamp(180px, 55vw, 300px);
     align-self: flex-end;
     margin-bottom: -1.25rem;
   }
