@@ -170,6 +170,11 @@ h3, h4 {
   position: relative;
 }
 
+/* Hero overlap can extend past flow box; keep dividers / clipping elsewhere */
+.section--intro {
+  overflow: visible;
+}
+
 .section::after {
   content: "";
   position: absolute;
@@ -191,30 +196,40 @@ h3, h4 {
 .hero-intro {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-intro__row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 0;
 }
 
 .hero-intro__text {
+  flex: 0 0 auto;
   position: relative;
   z-index: 2;
-  max-width: 7ch;
-}
-
-.hero-intro__media {
-  position: absolute;
-  right: 4.75rem;
-  top: -2.25rem;
-  z-index: 1;
-  width: clamp(280px, 37vw, 470px);
+  line-height: 1.08;
+  max-width: none;
 }
 
 .hero-intro__photo {
-  width: clamp(250px, 33vw, 420px);
-  margin-left: auto;
+  flex: 0 0 auto;
+  width: clamp(210px, 30vw, 360px);
   aspect-ratio: 1 / 1;
   border-radius: 9999px;
   overflow: hidden;
   border: 1px solid color-mix(in oklch, var(--primary) 28%, var(--border));
   box-shadow: 0 18px 42px color-mix(in oklch, var(--primary) 18%, transparent);
+  position: relative;
+  z-index: 1;
+  /* Tuck under “Georgia”, beside “Ray”: pull left + slight down into the name block */
+  margin-left: clamp(-4rem, -8vw, -1.25rem);
+  margin-top: 0.35em;
+  align-self: flex-start;
 }
 
 .hero-intro__photo img {
@@ -228,34 +243,39 @@ h3, h4 {
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
-  justify-content: center;
-  margin-top: 0.8rem;
+  align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  /* Sit on top of stacking; align under the photo / right side */
+  margin-top: 0.25rem;
+  margin-left: auto;
+  max-width: min(100%, 28rem);
+  justify-content: flex-end;
 }
 
 @media (max-width: 1023px) {
-  .hero-intro {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  .hero-intro__row {
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
-  .hero-intro__media {
-    position: relative;
-    top: 0;
-    right: auto;
+  .hero-intro__text {
+    order: 1;
     width: 100%;
   }
 
   .hero-intro__photo {
-    width: clamp(180px, 55vw, 300px);
-    align-self: flex-end;
+    width: clamp(180px, 52vw, 280px);
     margin-left: auto;
+    margin-top: -0.5rem;
+    order: 2;
   }
 
   .hero-intro__meta {
-    justify-content: flex-end;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    justify-content: flex-start;
     font-size: 0.98rem;
   }
 }

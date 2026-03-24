@@ -5,16 +5,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
 
   <!-- ═══ INTRO ═══════════════════════════════════════ -->
-  <section id="intro" class="section" style="padding-top: 8rem; padding-bottom: 6rem;">
+  <section id="intro" class="section section--intro" style="padding-top: 8rem; padding-bottom: 6rem;">
     <div class="container">
       <div class="row">
         <div class="col-2"></div>
         <div class="col-10">
           <div class="animate hero-intro">
-            <h1 class="hero-intro__text" style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; margin-bottom: 2rem;">
-              Georgia<br />Ray
-            </h1>
-            <div class="hero-intro__media">
+            <div class="hero-intro__row">
+              <h1 class="hero-intro__text" style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; margin: 0;">
+                Georgia<br />Ray
+              </h1>
               <figure class="hero-intro__photo" style="margin: 0;">
                 <img
                   src="/photos/prof-pic-recolored.jpeg"
@@ -23,12 +23,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                   decoding="async"
                 />
               </figure>
-              <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; color: var(--muted-foreground);">
-                <li class="animate">Machine learning engineer</li>
-                <li class="animate">Climate researcher</li>
-                <li class="animate">PhD student</li>
-              </ul>
             </div>
+            <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; margin: 0; color: var(--muted-foreground);">
+              <li>Machine learning engineer</li>
+              <li>Climate researcher</li>
+              <li>PhD student</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -69,31 +69,69 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <ul class="feed">
             {[
               {
-                period: "20XX – Present",
-                title: "ML Engineer",
-                org: "[Company / Lab]",
-                location: "[Location]",
-                desc: "Placeholder: describe what you worked on, what problems you solved, what you built.",
-                bullets: ["Built X thing", "Improved Y metric by Z%", "Collaborated with team on W"],
-                tags: ["PyTorch", "Python", "Distributed training"],
+                period: "Jan 2025 – Present",
+                title: "Machine Learning Engineer",
+                org: "The Chancery Lane Project",
+                location: "London, UK",
+                desc: "Part of the UX/Digital team, integrating ML into legal-climate workflows to help decarbonize supply chains through contracts.",
+                bullets: [
+                  "Developing and improving models that detect and recommend climate clauses in contracts",
+                  "Leading work on environmental impacts of AI in delivery and team practice",
+                  "Helping shape practical data science and ML strategy across product initiatives",
+                ],
+                tags: ["NLP", "Contract intelligence", "Python", "Applied ML"],
               },
               {
-                period: "20XX – 20XX",
-                title: "Research Intern",
-                org: "[Company / Lab]",
-                location: "[Location]",
-                desc: "Placeholder: a short description of your role and what you contributed.",
-                bullets: ["Fine-tuned LLMs on domain-specific data", "Contributed to paper submission", "Built evaluation pipelines"],
-                tags: ["LLMs", "Fine-tuning", "HuggingFace"],
+                period: "Jan 2025 – Present",
+                title: "Doctoral Student",
+                org: "Imperial College London",
+                location: "London, UK",
+                desc: "PhD research on environmental applications of machine learning, focused on downscaling climate-economy models to sector- and company-level metrics.",
+                bullets: [
+                  "Combining ML methods with climate modeling and statistical analysis",
+                  "Linking technical model outputs to corporate sustainability use-cases",
+                  "Advancing interpretable, decision-relevant approaches for decarbonization pathways",
+                ],
+                tags: ["Climate ML", "Integrated assessment models", "Research"],
               },
               {
-                period: "20XX – 20XX",
-                title: "Software Engineer",
-                org: "[Company]",
-                location: "[Location]",
-                desc: "Placeholder: what you built, what you learned, what scale you worked at.",
-                bullets: ["Built and maintained data pipelines", "Improved API performance", "Led small feature team"],
-                tags: ["Python", "APIs", "Data pipelines"],
+                period: "Oct 2024 – Dec 2024",
+                title: "Data Science Fellow",
+                org: "Faculty",
+                location: "London, UK",
+                desc: "Completed a competitive fellowship delivering LLM-based tooling for climate clause generation and recommendation in collaboration with TCLP.",
+                bullets: [
+                  "Fine-tuned an LLM via API for climate clause generation",
+                  "Built two NLP models: clause recommendation and company-language identification",
+                  "Shipped a Dockerized frontend + API workflow for practical team usage",
+                ],
+                tags: ["LLMs", "Fine-tuning", "NLP", "Docker"],
+              },
+              {
+                period: "Sep 2023 – Sep 2024",
+                title: "Master's Student",
+                org: "Imperial College London",
+                location: "London, UK",
+                desc: "Completed a master's with a research focus on environmental applications of machine learning and remote sensing.",
+                bullets: [
+                  "Built a single-encoder, double-decoder model for tree crown delineation and species classification",
+                  "Applied aerial imagery workflows to improve carbon-accounting transparency",
+                  "Connected technical research outputs to climate and sustainability decision contexts",
+                ],
+                tags: ["Remote sensing", "Computer vision", "Environmental ML"],
+              },
+              {
+                period: "Aug 2021 – Jul 2023",
+                title: "Research Associate",
+                org: "Environmental Law Institute",
+                location: "Washington, DC, USA",
+                desc: "Supported interdisciplinary projects on environmental enforcement, digital economy impacts, and environmental technology.",
+                bullets: [
+                  "Contributed research spanning environmental crimes and intergovernmental enforcement",
+                  "Helped coordinate the Research Coordination Network and Digital Economy and the Environment work",
+                  "Supported GreenTech-focused initiatives linking policy and emerging technologies",
+                ],
+                tags: ["Environmental policy", "Research", "Climate governance"],
               },
             ].map((role) => (
               <li class="feed__item animate">
@@ -124,16 +162,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <ul class="feed">
               {[
                 {
-                  period: "20XX – Present",
-                  title: "PhD, [Field]",
-                  org: "[University]",
-                  desc: "Thesis: [Working title]. Supervised by [Supervisor].",
+                  period: "2025 – 2028 (expected)",
+                  title: "PhD, Applied Machine Learning and Environmental Policy",
+                  org: "Imperial College London",
+                  desc: "Researching how ML can downscale climate-economy models for sector and company decision-making.",
                 },
                 {
-                  period: "20XX – 20XX",
-                  title: "MEng / MSc / BA, [Field]",
-                  org: "[University]",
-                  desc: "Graduated with [distinction]. Dissertation on [topic].",
+                  period: "2023 – 2024",
+                  title: "Master's Degree",
+                  org: "Imperial College London",
+                  desc: "Independent research project applying remote sensing and aerial imagery to carbon-accounting tasks.",
+                },
+                {
+                  period: "2017 – 2021",
+                  title: "Bachelor's Degree (summa cum laude)",
+                  org: "University of Pennsylvania",
+                  desc: "Computational Cognitive Science, Urban Studies, and Philosophy of Science.",
                 },
               ].map((ed) => (
                 <li class="feed__item animate">
