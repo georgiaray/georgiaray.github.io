@@ -1,53 +1,387 @@
 ---
-import SidebarLayout from "../layouts/SidebarLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<SidebarLayout title="About" description="About Georgia Ray — ML engineer and PhD student.">
-  <!-- Hero -->
-  <section class="mb-16">
-    <p class="text-sm font-medium tracking-widest uppercase mb-3" style="color: var(--muted-foreground);">Hey, I'm</p>
-    <h1 class="font-serif text-5xl font-bold leading-tight mb-6" style="color: var(--foreground);">
-      Georgia Ray
-    </h1>
-    <p class="text-lg leading-relaxed mb-4" style="color: var(--foreground);">
-      I'm a machine learning engineer and PhD student working on [research area]. I spend most of my time thinking about [topics you care about], building things that [description of work], and occasionally writing about ideas I find interesting.
-    </p>
-    <p class="text-base leading-relaxed" style="color: var(--muted-foreground);">
-      I try to make technical work accessible and a bit more human. If something I've built or written is useful to you, that makes me happy.
-    </p>
-  </section>
+<BaseLayout>
 
-  <!-- Currently section -->
-  <section class="mb-16 fade-up">
-    <h2 class="font-serif text-2xl font-semibold mb-6" style="color: var(--foreground);">Currently</h2>
-    <div class="grid gap-0">
-      {[
-        { label: "Researching", value: "[Your research topic] at [Your university/lab]" },
-        { label: "Building", value: "[A project or tool you're working on]" },
-        { label: "Reading", value: "[A paper or book]" },
-        { label: "Based in", value: "[Your city]" },
-      ].map(({ label, value }) => (
-        <div class="flex gap-4 py-3 border-b" style="border-color: var(--border);">
-          <span class="text-sm font-medium w-28 shrink-0" style="color: var(--muted-foreground);">{label}</span>
-          <span class="text-sm" style="color: var(--foreground);">{value}</span>
+  <!-- ═══ INTRO ═══════════════════════════════════════ -->
+  <section id="intro" class="section" style="padding-top: 8rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+          <div class="animate">
+            <h1 style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; max-width: 16ch; margin-bottom: 2rem;">
+              Hi,<br />I'm Georgia<br />&amp; I do ML.
+            </h1>
+            <ul style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; color: var(--muted-foreground);">
+              <li class="animate"><a href="mailto:georgia.ray@chancerylaneproject.org" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--foreground)'" onmouseout="this.style.color='var(--muted-foreground)'">georgia.ray@chancerylaneproject.org</a></li>
+              <li class="animate">PhD student</li>
+              <li class="animate">ML engineer</li>
+            </ul>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   </section>
 
-  <!-- A bit more -->
-  <section class="mb-16 fade-up">
-    <h2 class="font-serif text-2xl font-semibold mb-6" style="color: var(--foreground);">A bit more</h2>
-    <div class="space-y-4 text-base leading-relaxed" style="color: var(--muted-foreground);">
-      <p>
-        [A paragraph about your background — where you came from, how you got into ML, what drew you to your PhD topic. Keep it personal and non-CV-y.]
-      </p>
-      <p>
-        [Another paragraph about how you work, what you value, or what you're trying to figure out. This is the place for a bit of personality.]
-      </p>
-      <p>
-        Outside of work I [hobbies / interests]. You can usually reach me at <a href="mailto:georgia.ray@chancerylaneproject.org" class="underline underline-offset-2 transition-opacity hover:opacity-70" style="color: var(--primary);">georgia.ray@chancerylaneproject.org</a>.
-      </p>
+  <!-- ═══ ABOUT ════════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <h2 class="section-label animate" style="position: sticky; top: 5rem;">About me</h2>
+        </div>
+        <div class="col-10">
+          <div style="columns: 2; gap: 2.5rem;">
+            <p class="animate" style="margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.8; color: var(--muted-foreground);">
+              I'm a machine learning engineer and PhD student working on [research area]. I spend most of my time thinking about [topics you care about], building things that [description of work], and occasionally writing about ideas I find interesting.
+            </p>
+            <p class="animate" style="font-size: 1rem; line-height: 1.8; color: var(--muted-foreground);">
+              I try to make technical work accessible and a bit more human. Outside of research I [hobbies / interests]. If something I've built or written is useful to you, that makes me happy.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-</SidebarLayout>
+
+  <!-- ═══ EXPERIENCE ═══════════════════════════════════ -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <h2 class="section-label animate" style="position: sticky; top: 5rem;">Experience</h2>
+        </div>
+        <div class="col-10">
+          <ul class="feed">
+            {[
+              {
+                period: "20XX – Present",
+                title: "ML Engineer",
+                org: "[Company / Lab]",
+                location: "[Location]",
+                desc: "Placeholder: describe what you worked on, what problems you solved, what you built.",
+                bullets: ["Built X thing", "Improved Y metric by Z%", "Collaborated with team on W"],
+                tags: ["PyTorch", "Python", "Distributed training"],
+              },
+              {
+                period: "20XX – 20XX",
+                title: "Research Intern",
+                org: "[Company / Lab]",
+                location: "[Location]",
+                desc: "Placeholder: a short description of your role and what you contributed.",
+                bullets: ["Fine-tuned LLMs on domain-specific data", "Contributed to paper submission", "Built evaluation pipelines"],
+                tags: ["LLMs", "Fine-tuning", "HuggingFace"],
+              },
+              {
+                period: "20XX – 20XX",
+                title: "Software Engineer",
+                org: "[Company]",
+                location: "[Location]",
+                desc: "Placeholder: what you built, what you learned, what scale you worked at.",
+                bullets: ["Built and maintained data pipelines", "Improved API performance", "Led small feature team"],
+                tags: ["Python", "APIs", "Data pipelines"],
+              },
+            ].map((role) => (
+              <li class="feed__item animate">
+                <div>
+                  <div class="feed__item-date">{role.period}</div>
+                  <div class="feed__item-company">{role.org}</div>
+                  <div class="feed__item-company">{role.location}</div>
+                </div>
+                <div>
+                  <div class="feed__item-title">{role.title}</div>
+                  <div class="feed__item-body">
+                    <p>{role.desc}</p>
+                    <ul>
+                      {role.bullets.map(b => <li>{b}</li>)}
+                    </ul>
+                  </div>
+                  <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                    {role.tags.map(tag => <span class="tag">{tag}</span>)}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Education -->
+          <div style="margin-top: 4rem;">
+            <h3 style="font-size: 1rem; font-style: italic; font-weight: 500; color: var(--muted-foreground); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--font-sans);">Education</h3>
+            <ul class="feed">
+              {[
+                {
+                  period: "20XX – Present",
+                  title: "PhD, [Field]",
+                  org: "[University]",
+                  desc: "Thesis: [Working title]. Supervised by [Supervisor].",
+                },
+                {
+                  period: "20XX – 20XX",
+                  title: "MEng / MSc / BA, [Field]",
+                  org: "[University]",
+                  desc: "Graduated with [distinction]. Dissertation on [topic].",
+                },
+              ].map((ed) => (
+                <li class="feed__item animate">
+                  <div>
+                    <div class="feed__item-date">{ed.period}</div>
+                    <div class="feed__item-company">{ed.org}</div>
+                  </div>
+                  <div>
+                    <div class="feed__item-title">{ed.title}</div>
+                    <div class="feed__item-body"><p>{ed.desc}</p></div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══════════════════════════════════════ -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <h2 class="section-label animate" style="position: sticky; top: 5rem;">Skills &amp; Tools</h2>
+        </div>
+        <div class="col-5 animate">
+          <p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.8;">
+            I'm an ML engineer who likes building things end-to-end — from data pipelines to model training to deployment. I care about reproducibility, readable code, and making research useful in practice.
+          </p>
+          <ul class="list--basic" style="color: var(--foreground); font-size: 0.95rem;">
+            <li>Machine learning & deep learning</li>
+            <li>NLP & language models</li>
+            <li>Experiment design & evaluation</li>
+            <li>ML systems & deployment</li>
+            <li>Data visualisation & communication</li>
+          </ul>
+        </div>
+        <div class="col-5 animate">
+          <p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.8;">
+            I try to keep my tooling pragmatic — use what's best for the job. Currently most of my work lives in Python and PyTorch, with a lot of time in the terminal.
+          </p>
+          <ul class="list--basic" style="color: var(--foreground); font-size: 0.95rem;">
+            <li>Python, PyTorch, JAX</li>
+            <li>HuggingFace, Weights & Biases</li>
+            <li>Docker, GCP / AWS, SLURM</li>
+            <li>D3.js, Observable, React</li>
+            <li>Git, LaTeX, Jupyter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ══════════════════════════════════════ -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="row" style="margin-bottom: 1.5rem;">
+        <div class="col-2">
+          <h2 class="section-label animate" style="position: sticky; top: 5rem;">Projects</h2>
+        </div>
+        <div class="col-5 animate">
+          <p style="color: var(--muted-foreground); line-height: 1.8;">ML work, side projects, and things I've built for fun or research.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            {[
+              {
+                title: "Project Alpha",
+                desc: "Placeholder: a short, accessible description of what this project does and why it's interesting. Avoid jargon where possible.",
+                tags: ["PyTorch", "NLP", "Open source"],
+                status: "Active",
+                github: "#",
+              },
+              {
+                title: "Project Beta",
+                desc: "Placeholder: another project. What problem does it solve? What's interesting or novel about the approach?",
+                tags: ["Python", "API", "Data viz"],
+                status: "Active",
+                github: "#",
+                demo: "/demos",
+              },
+              {
+                title: "Side thing",
+                desc: "Placeholder: a smaller or older project — could be a tool, a dataset, a script, or a weekend hack.",
+                tags: ["TypeScript", "CLI"],
+                status: "Archived",
+                github: "#",
+              },
+            ].map((p) => (
+              <div class="card animate">
+                <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.75rem;">
+                  <h3 style="font-style: italic; font-size: 1.2rem; font-weight: 500;">{p.title}</h3>
+                  <span class={`tag ${p.status === "Archived" ? "tag--muted" : ""}`} style="flex-shrink: 0; margin-top: 0.25rem; font-size: 0.7rem;">
+                    {p.status}
+                  </span>
+                </div>
+                <p style="font-size: 0.875rem; line-height: 1.7; color: var(--muted-foreground); margin-bottom: 1rem;">{p.desc}</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem;">
+                  {p.tags.map(tag => <span class="tag tag--muted" style="font-size: 0.7rem;">{tag}</span>)}
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                  <a href={p.github} style="font-size: 0.85rem; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">GitHub →</a>
+                  {p.demo && <a href={p.demo} style="font-size: 0.85rem; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Demo →</a>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ACADEMIC WRITING ══════════════════════════════ -->
+  <section id="academic-writing" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <h2 class="section-label animate" style="position: sticky; top: 5rem;">Academic Writing</h2>
+        </div>
+        <div class="col-10">
+          {[
+            {
+              title: "Paper title goes here: a long subtitle that explains the contribution",
+              venue: "NeurIPS 20XX",
+              authors: "G. Ray, A. Collaborator, B. Another",
+              abstract: "Placeholder abstract. A sentence or two about what the paper does, what the key insight is, and what the results show.",
+              type: "Conference",
+              links: [{ label: "arXiv", href: "#" }, { label: "PDF", href: "#" }, { label: "Code", href: "#" }],
+            },
+            {
+              title: "Another paper title",
+              venue: "ICML 20XX",
+              authors: "G. Ray, C. Third",
+              abstract: "Placeholder abstract. A sentence or two about what the paper does and why it matters.",
+              type: "Conference",
+              links: [{ label: "arXiv", href: "#" }, { label: "Poster", href: "#" }],
+            },
+            {
+              title: "A workshop paper or preprint",
+              venue: "NeurIPS Workshop on [Topic], 20XX",
+              authors: "G. Ray",
+              abstract: "Placeholder abstract. Workshop paper, preprint, or extended abstract.",
+              type: "Workshop",
+              links: [{ label: "PDF", href: "#" }],
+            },
+          ].map((paper) => (
+            <article class="animate" style="padding: 1.75rem 0; border-bottom: 1px solid var(--border);">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <span class={`tag ${paper.type === "Workshop" ? "" : ""}`} style={`flex-shrink: 0; margin-top: 0.2rem; font-size: 0.7rem; background-color: ${paper.type === "Conference" ? "var(--primary)" : "var(--accent)"}; color: ${paper.type === "Conference" ? "var(--primary-foreground)" : "var(--accent-foreground)"};`}>
+                  {paper.type}
+                </span>
+                <h3 style="font-style: italic; font-size: 1.15rem; font-weight: 500; line-height: 1.35;">{paper.title}</h3>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--primary); margin-bottom: 0.25rem; padding-left: 3.5rem;">{paper.venue}</p>
+              <p style="font-size: 0.8rem; color: var(--muted-foreground); margin-bottom: 0.75rem; padding-left: 3.5rem;">{paper.authors}</p>
+              <p style="font-size: 0.875rem; line-height: 1.7; color: var(--muted-foreground); margin-bottom: 1rem; padding-left: 3.5rem;">{paper.abstract}</p>
+              <div style="display: flex; gap: 1.25rem; padding-left: 3.5rem;">
+                {paper.links.map(l => (
+                  <a href={l.href} target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">{l.label}</a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CASUAL WRITING ════════════════════════════════ -->
+  <section id="writing" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <h2 class="section-label animate" style="position: sticky; top: 5rem;">Writing</h2>
+        </div>
+        <div class="col-10">
+          {[
+            {
+              title: "A thing I've been thinking about",
+              date: "March 2026",
+              tag: "ML",
+              excerpt: "Placeholder: a couple of sentences that give the flavour of the piece. What's the question, the observation, or the tension you're exploring?",
+              href: "#",
+            },
+            {
+              title: "Why [thing] is more interesting than it sounds",
+              date: "January 2026",
+              tag: "Explainer",
+              excerpt: "Placeholder: this one is more explainer-y — making something technical feel approachable for a non-specialist.",
+              href: "#",
+            },
+            {
+              title: "Notes on [paper / concept / experiment]",
+              date: "November 2025",
+              tag: "Notes",
+              excerpt: "Placeholder: informal notes, half-formed thoughts, something you read or tried that you wanted to write down before you forgot it.",
+              href: "#",
+            },
+            {
+              title: "Something non-ML",
+              date: "September 2025",
+              tag: "Other",
+              excerpt: "Placeholder: a post about something else you care about — a book, an idea, an observation about the world.",
+              href: "#",
+            },
+          ].map((post) => (
+            <a href={post.href} class="writing-item animate">
+              <div class="writing-item__meta">
+                <span class="tag" style="font-size: 0.7rem;">{post.tag}</span>
+                <span>{post.date}</span>
+              </div>
+              <div class="writing-item__title">{post.title}</div>
+              <div class="writing-item__excerpt">{post.excerpt}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT / FOOTER ══════════════════════════════ -->
+  <footer id="contact" style="padding: 6rem 0 5rem; overflow: hidden; position: relative; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-5">
+          <span class="animate" style="
+            position: absolute;
+            left: -8rem;
+            top: -8rem;
+            width: 28rem;
+            height: 28rem;
+            border-radius: 9999px;
+            background-color: var(--accent);
+            opacity: 0.35;
+            z-index: -1;
+            pointer-events: none;
+          "></span>
+          <h2 class="animate" style="font-size: clamp(3rem, 7vw, 6rem); font-style: normal; font-weight: 400; line-height: 1.1; margin-bottom: 2rem; position: relative; z-index: 1;">
+            Let's<br />connect
+          </h2>
+        </div>
+        <div class="col-5">
+          <p class="animate" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; line-height: 1.9; color: var(--muted-foreground); margin-bottom: 2rem;">
+            I'm always happy to chat about research, ML engineering, or anything I've written about.
+            Feel free to email me at <a href="mailto:georgia.ray@chancerylaneproject.org" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">georgia.ray@chancerylaneproject.org</a>,
+            find me on <a href="https://github.com/georgiaray" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">GitHub</a>,
+            or on <a href="https://twitter.com/georgiaray" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">Twitter</a>.
+          </p>
+          <p class="animate" style="font-size: 0.8rem; color: var(--muted-foreground);">
+            © {new Date().getFullYear()} Georgia Ray
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
