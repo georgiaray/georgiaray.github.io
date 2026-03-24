@@ -196,20 +196,20 @@ h3, h4 {
 .hero-intro__text {
   position: relative;
   z-index: 2;
-  max-width: 16ch;
+  max-width: 7ch;
 }
 
-.hero-intro__meta {
-  position: relative;
-  z-index: 2;
+.hero-intro__media {
+  position: absolute;
+  right: 4.75rem;
+  top: -2.25rem;
+  z-index: 1;
+  width: clamp(280px, 37vw, 470px);
 }
 
 .hero-intro__photo {
-  position: absolute;
-  right: 7.5rem;
-  top: -2.6rem;
-  z-index: 1;
-  width: clamp(250px, 34vw, 430px);
+  width: clamp(250px, 33vw, 420px);
+  margin-left: auto;
   aspect-ratio: 1 / 1;
   border-radius: 9999px;
   overflow: hidden;
@@ -224,20 +224,39 @@ h3, h4 {
   object-fit: cover;
 }
 
+.hero-intro__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-top: 0.8rem;
+  position: relative;
+  z-index: 2;
+}
+
 @media (max-width: 1023px) {
   .hero-intro {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
-  .hero-intro__photo {
+  .hero-intro__media {
     position: relative;
     top: 0;
     right: auto;
+    width: 100%;
+  }
+
+  .hero-intro__photo {
     width: clamp(180px, 55vw, 300px);
     align-self: flex-end;
-    margin-bottom: -1.25rem;
+    margin-left: auto;
+  }
+
+  .hero-intro__meta {
+    justify-content: flex-end;
+    font-size: 0.98rem;
   }
 }
 

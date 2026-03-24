@@ -12,22 +12,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="col-10">
           <div class="animate hero-intro">
             <h1 class="hero-intro__text" style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; margin-bottom: 2rem;">
-              Georgia<br />Ray<br
+              Georgia<br />Ray
             </h1>
-            <ul class="hero-intro__meta" style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; color: var(--muted-foreground);">
-              <li class="animate"><a href="mailto:99gray@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--foreground)'" onmouseout="this.style.color='var(--muted-foreground)'">99gray@gmail.com</a></li>
-              <li class="animate">Machine learning engineer</li>
-              <li class="animate">Climate researcher</li>
-              <li class="animate">PhD student</li>
-            </ul>
-            <figure class="hero-intro__photo" style="margin: 0;">
-              <img
-                src="/photos/prof-pic-recolored.jpeg"
-                alt="Portrait of Georgia Ray"
-                loading="eager"
-                decoding="async"
-              />
-            </figure>
+            <div class="hero-intro__media">
+              <figure class="hero-intro__photo" style="margin: 0;">
+                <img
+                  src="/photos/prof-pic-recolored.jpeg"
+                  alt="Portrait of Georgia Ray"
+                  loading="eager"
+                  decoding="async"
+                />
+              </figure>
+              <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; color: var(--muted-foreground);">
+                <li class="animate">Machine learning engineer</li>
+                <li class="animate">Climate researcher</li>
+                <li class="animate">PhD student</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -49,7 +50,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               I also work as a Machine Learning Engineer at The Chancery Lane Project where we have an organisational focus on decarbonising supply chains through contracts. Personally, I have spearheaded the initiative and helped secure funding for building an institutional knowledge graph to better leverage institutional knowledge in an age of LLMs. 
             </p>
             <p class="animate" style="font-size: 1rem; line-height: 1.8; color: var(--muted-foreground);">
-              I try to make technical work accessible and a bit more human. Outside of research I [hobbies / interests]. If something I've built or written is useful to you, that makes me happy.
+            Outside of research and work, I play way too much football, watch probably the same amount (NFL and Premiere League), read and write, hike and swim, and visit London's endless art galleries. When I run out (or just get the itch), I travel to see more.
             </p>
           </div>
         </div>
