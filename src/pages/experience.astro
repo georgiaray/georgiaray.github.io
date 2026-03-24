@@ -1,0 +1,96 @@
+---
+import SidebarLayout from "../layouts/SidebarLayout.astro";
+
+const roles = [
+  {
+    title: "ML Engineer",
+    org: "[Company / Lab]",
+    period: "20XX — Present",
+    desc: "Placeholder: describe what you worked on, what problems you solved, what you built.",
+    tags: ["PyTorch", "Python", "Distributed training"],
+  },
+  {
+    title: "Research Intern",
+    org: "[Company / Lab]",
+    period: "20XX — 20XX",
+    desc: "Placeholder: a short description of your role and what you contributed.",
+    tags: ["LLMs", "Fine-tuning", "HuggingFace"],
+  },
+  {
+    title: "Software Engineer",
+    org: "[Company]",
+    period: "20XX — 20XX",
+    desc: "Placeholder: what you built, what you learned, what scale you worked at.",
+    tags: ["Python", "APIs", "Data pipelines"],
+  },
+];
+
+const education = [
+  {
+    degree: "PhD, [Field]",
+    institution: "[University]",
+    period: "20XX — Present",
+    desc: "Thesis: [Working title]. Supervised by [Supervisor name].",
+  },
+  {
+    degree: "MEng / MSc / BA, [Field]",
+    institution: "[University]",
+    period: "20XX — 20XX",
+    desc: "Graduated with [distinction/merit/first]. Dissertation on [topic].",
+  },
+];
+---
+
+<SidebarLayout title="Experience" description="Georgia Ray's work history and education.">
+  <section class="mb-16">
+    <h1 class="font-serif text-4xl font-bold mb-2" style="color: var(--foreground);">Experience</h1>
+    <p class="text-base" style="color: var(--muted-foreground);">Where I've worked and what I've built.</p>
+  </section>
+
+  <!-- Work -->
+  <section class="mb-16">
+    <h2 class="font-serif text-xl font-semibold mb-8" style="color: var(--foreground);">Work</h2>
+    <div class="space-y-10">
+      {roles.map((role, i) => (
+        <div class="fade-up relative pl-6 border-l-2" style="border-color: var(--border);" style={`transition-delay: ${i * 100}ms`}>
+          <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full" style="background-color: var(--primary);"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+            <div>
+              <span class="font-semibold text-base" style="color: var(--foreground);">{role.title}</span>
+              <span class="mx-2" style="color: var(--muted-foreground);">·</span>
+              <span class="text-sm" style="color: var(--muted-foreground);">{role.org}</span>
+            </div>
+            <span class="text-xs font-mono" style="color: var(--muted-foreground);">{role.period}</span>
+          </div>
+          <p class="text-sm leading-relaxed mb-3" style="color: var(--muted-foreground);">{role.desc}</p>
+          <div class="flex flex-wrap gap-2">
+            {role.tags.map(tag => (
+              <span class="text-xs px-2 py-0.5 rounded-full font-medium" style="background-color: var(--accent); color: var(--accent-foreground);">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="mb-16 fade-up">
+    <h2 class="font-serif text-xl font-semibold mb-8" style="color: var(--foreground);">Education</h2>
+    <div class="space-y-8">
+      {education.map(ed => (
+        <div class="relative pl-6 border-l-2" style="border-color: var(--border);">
+          <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full" style="background-color: var(--accent-foreground);"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+            <div>
+              <span class="font-semibold text-base" style="color: var(--foreground);">{ed.degree}</span>
+              <span class="mx-2" style="color: var(--muted-foreground);">·</span>
+              <span class="text-sm" style="color: var(--muted-foreground);">{ed.institution}</span>
+            </div>
+            <span class="text-xs font-mono" style="color: var(--muted-foreground);">{ed.period}</span>
+          </div>
+          <p class="text-sm leading-relaxed" style="color: var(--muted-foreground);">{ed.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</SidebarLayout>

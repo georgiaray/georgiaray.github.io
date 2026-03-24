@@ -1,0 +1,53 @@
+---
+import SidebarLayout from "../layouts/SidebarLayout.astro";
+---
+
+<SidebarLayout title="About" description="About Georgia Ray — ML engineer and PhD student.">
+  <!-- Hero -->
+  <section class="mb-16">
+    <p class="text-sm font-medium tracking-widest uppercase mb-3" style="color: var(--muted-foreground);">Hey, I'm</p>
+    <h1 class="font-serif text-5xl font-bold leading-tight mb-6" style="color: var(--foreground);">
+      Georgia Ray
+    </h1>
+    <p class="text-lg leading-relaxed mb-4" style="color: var(--foreground);">
+      I'm a machine learning engineer and PhD student working on [research area]. I spend most of my time thinking about [topics you care about], building things that [description of work], and occasionally writing about ideas I find interesting.
+    </p>
+    <p class="text-base leading-relaxed" style="color: var(--muted-foreground);">
+      I try to make technical work accessible and a bit more human. If something I've built or written is useful to you, that makes me happy.
+    </p>
+  </section>
+
+  <!-- Currently section -->
+  <section class="mb-16 fade-up">
+    <h2 class="font-serif text-2xl font-semibold mb-6" style="color: var(--foreground);">Currently</h2>
+    <div class="grid gap-0">
+      {[
+        { label: "Researching", value: "[Your research topic] at [Your university/lab]" },
+        { label: "Building", value: "[A project or tool you're working on]" },
+        { label: "Reading", value: "[A paper or book]" },
+        { label: "Based in", value: "[Your city]" },
+      ].map(({ label, value }) => (
+        <div class="flex gap-4 py-3 border-b" style="border-color: var(--border);">
+          <span class="text-sm font-medium w-28 shrink-0" style="color: var(--muted-foreground);">{label}</span>
+          <span class="text-sm" style="color: var(--foreground);">{value}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- A bit more -->
+  <section class="mb-16 fade-up">
+    <h2 class="font-serif text-2xl font-semibold mb-6" style="color: var(--foreground);">A bit more</h2>
+    <div class="space-y-4 text-base leading-relaxed" style="color: var(--muted-foreground);">
+      <p>
+        [A paragraph about your background — where you came from, how you got into ML, what drew you to your PhD topic. Keep it personal and non-CV-y.]
+      </p>
+      <p>
+        [Another paragraph about how you work, what you value, or what you're trying to figure out. This is the place for a bit of personality.]
+      </p>
+      <p>
+        Outside of work I [hobbies / interests]. You can usually reach me at <a href="mailto:georgia.ray@chancerylaneproject.org" class="underline underline-offset-2 transition-opacity hover:opacity-70" style="color: var(--primary);">georgia.ray@chancerylaneproject.org</a>.
+      </p>
+    </div>
+  </section>
+</SidebarLayout>

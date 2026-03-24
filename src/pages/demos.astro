@@ -1,0 +1,84 @@
+---
+import SidebarLayout from "../layouts/SidebarLayout.astro";
+
+const demos = [
+  {
+    title: "Interactive demo placeholder",
+    desc: "Placeholder: describe what this demo shows — an algorithm, a dataset, a model behaviour, a visualisation. Make it enticing.",
+    tags: ["D3.js", "PyTorch", "WebAssembly"],
+    href: "#",
+    status: "Live",
+  },
+  {
+    title: "Another visualisation",
+    desc: "Placeholder: another interactive thing. Could be a toy model explorer, an attention map viewer, a loss landscape — whatever you've built.",
+    tags: ["Observable", "JavaScript"],
+    href: "#",
+    status: "Live",
+  },
+  {
+    title: "Work in progress",
+    desc: "Placeholder: something not quite ready yet but you're working on it.",
+    tags: ["React", "WASM"],
+    href: "#",
+    status: "Coming soon",
+  },
+];
+---
+
+<SidebarLayout title="Demos" description="Interactive ML demos and visualisations by Georgia Ray.">
+  <section class="mb-16">
+    <h1 class="font-serif text-4xl font-bold mb-2" style="color: var(--foreground);">Demos</h1>
+    <p class="text-base" style="color: var(--muted-foreground);">Interactive things — visualisations, toy models, and experiments you can poke at.</p>
+  </section>
+
+  <div class="grid gap-6">
+    {demos.map((demo, i) => (
+      <article
+        class="fade-up rounded-xl border overflow-hidden"
+        style="background-color: var(--card); border-color: var(--border);"
+      >
+        <!-- Preview placeholder -->
+        <div
+          class="w-full h-40 flex items-center justify-center text-sm"
+          style="background-color: var(--muted); color: var(--muted-foreground);"
+        >
+          {demo.status === "Coming soon"
+            ? "Coming soon"
+            : "[ Interactive preview will load here ]"}
+        </div>
+
+        <div class="p-5">
+          <div class="flex items-center justify-between gap-3 mb-2">
+            <h2 class="font-serif text-lg font-semibold" style="color: var(--foreground);">{demo.title}</h2>
+            <span
+              class="text-xs px-2 py-0.5 rounded-full font-medium shrink-0"
+              style={demo.status === "Live"
+                ? "background-color: var(--accent); color: var(--accent-foreground);"
+                : "background-color: var(--muted); color: var(--muted-foreground);"}
+            >
+              {demo.status}
+            </span>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" style="color: var(--muted-foreground);">{demo.desc}</p>
+          <div class="flex items-center justify-between">
+            <div class="flex flex-wrap gap-2">
+              {demo.tags.map(tag => (
+                <span class="text-xs px-2 py-0.5 rounded-full" style="background-color: var(--secondary); color: var(--secondary-foreground);">{tag}</span>
+              ))}
+            </div>
+            {demo.status === "Live" && (
+              <a
+                href={demo.href}
+                class="text-sm font-medium transition-opacity hover:opacity-70"
+                style="color: var(--primary);"
+              >
+                Open →
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</SidebarLayout>

@@ -1,0 +1,117 @@
+---
+const navLinks = [
+  { href: "/", label: "About" },
+  { href: "/experience", label: "Experience" },
+  { href: "/skills", label: "Skills & Tools" },
+  { href: "/projects", label: "Projects" },
+  { href: "/academic-writing", label: "Academic Writing" },
+  { href: "/writing", label: "Casual Writing" },
+  { href: "/demos", label: "Demos" },
+  { href: "/contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<aside
+  class="fixed top-0 left-0 h-screen w-64 flex flex-col justify-between px-8 py-10 border-r z-40"
+  style="background-color: var(--sidebar); border-color: var(--sidebar-border);"
+>
+  <!-- Identity -->
+  <div>
+    <div class="mb-8">
+      <a href="/" class="block">
+        <p class="text-xs font-medium tracking-widest uppercase mb-1" style="color: var(--muted-foreground);">Georgia Ray</p>
+        <h1 class="font-serif text-xl font-semibold leading-snug" style="color: var(--sidebar-foreground);">
+          ML Engineer<br /><span class="font-normal italic text-lg" style="color: var(--muted-foreground);">& PhD student</span>
+        </h1>
+      </a>
+    </div>
+
+    <!-- Nav -->
+    <nav aria-label="Main navigation">
+      <ul class="space-y-1">
+        {navLinks.map((link) => {
+          const isActive =
+            link.href === "/"
+              ? currentPath === "" || currentPath === "/"
+              : currentPath === link.href || currentPath.startsWith(link.href + "/");
+          return (
+            <li>
+              <a
+                href={link.href}
+                class={`nav-link block py-1.5 pl-4 text-sm font-medium rounded-sm transition-colors ${
+                  isActive
+                    ? "active"
+                    : "hover:text-[var(--sidebar-accent-foreground)]"
+                }`}
+                style={
+                  isActive
+                    ? "color: var(--sidebar-accent-foreground);"
+                    : "color: var(--sidebar-foreground);"
+                }
+                aria-current={isActive ? "page" : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Footer controls -->
+  <div class="flex items-center justify-between">
+    <!-- Dark mode toggle -->
+    <button
+      id="theme-toggle"
+      aria-label="Toggle dark mode"
+      class="rounded-full p-2 transition-colors hover:bg-[var(--sidebar-accent)]"
+      style="color: var(--muted-foreground);"
+    >
+      <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+      </svg>
+      <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+      </svg>
+    </button>
+
+    <!-- Social links -->
+    <div class="flex gap-2">
+      <a href="https://github.com/georgiaray" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="p-2 rounded-full transition-colors hover:bg-[var(--sidebar-accent)]" style="color: var(--muted-foreground);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com/georgiaray" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" class="p-2 rounded-full transition-colors hover:bg-[var(--sidebar-accent)]" style="color: var(--muted-foreground);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const sun = document.getElementById("icon-sun");
+  const moon = document.getElementById("icon-moon");
+  const html = document.documentElement;
+
+  function applyTheme(dark: boolean) {
+    html.classList.toggle("dark", dark);
+    sun?.classList.toggle("hidden", !dark);
+    moon?.classList.toggle("hidden", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }
+
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved === "dark" || (!saved && prefersDark));
+
+  toggle?.addEventListener("click", () => {
+    applyTheme(!html.classList.contains("dark"));
+  });
+</script>

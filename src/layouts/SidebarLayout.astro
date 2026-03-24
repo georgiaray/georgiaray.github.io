@@ -1,0 +1,40 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="flex min-h-screen">
+    <Sidebar />
+
+    <!-- Main content -->
+    <main class="ml-64 flex-1 min-h-screen">
+      <div class="max-w-3xl mx-auto px-10 py-16">
+        <slot />
+      </div>
+    </main>
+  </div>
+
+  <!-- Scroll animation observer -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+  </script>
+</BaseLayout>

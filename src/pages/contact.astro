@@ -1,0 +1,48 @@
+---
+import SidebarLayout from "../layouts/SidebarLayout.astro";
+
+const links = [
+  { label: "Email", value: "georgia.ray@chancerylaneproject.org", href: "mailto:georgia.ray@chancerylaneproject.org" },
+  { label: "GitHub", value: "github.com/georgiaray", href: "https://github.com/georgiaray" },
+  { label: "Twitter / X", value: "@georgiaray", href: "https://twitter.com/georgiaray" },
+  { label: "Google Scholar", value: "Georgia Ray", href: "#" },
+  { label: "LinkedIn", value: "linkedin.com/in/georgiaray", href: "#" },
+];
+---
+
+<SidebarLayout title="Contact" description="Get in touch with Georgia Ray.">
+  <section class="mb-16">
+    <h1 class="font-serif text-4xl font-bold mb-2" style="color: var(--foreground);">Contact</h1>
+    <p class="text-base leading-relaxed" style="color: var(--muted-foreground);">
+      I'm generally happy to chat about research, ML engineering, or anything I've written about. Email is the best way to reach me.
+    </p>
+  </section>
+
+  <section class="mb-16 fade-up">
+    <div class="space-y-0">
+      {links.map(link => (
+        <div class="flex gap-4 py-4 border-b" style="border-color: var(--border);">
+          <span class="text-sm font-medium w-32 shrink-0" style="color: var(--muted-foreground);">{link.label}</span>
+          <a
+            href={link.href}
+            target={link.href.startsWith("http") ? "_blank" : undefined}
+            rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            class="text-sm underline underline-offset-2 transition-opacity hover:opacity-70"
+            style="color: var(--primary);"
+          >
+            {link.value}
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="fade-up">
+    <div class="rounded-xl p-6 border" style="background-color: var(--card); border-color: var(--border);">
+      <h2 class="font-serif text-lg font-semibold mb-3" style="color: var(--foreground);">A note on response times</h2>
+      <p class="text-sm leading-relaxed" style="color: var(--muted-foreground);">
+        I try to respond to emails within a week. If you're writing about collaboration, a paper, or something substantive — feel free to include context upfront, it helps a lot.
+      </p>
+    </div>
+  </section>
+</SidebarLayout>

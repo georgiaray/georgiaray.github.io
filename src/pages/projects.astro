@@ -1,0 +1,82 @@
+---
+import SidebarLayout from "../layouts/SidebarLayout.astro";
+
+const projects = [
+  {
+    title: "Project Alpha",
+    desc: "Placeholder: a short, accessible description of what this project does and why it's interesting. Avoid jargon where possible.",
+    tags: ["PyTorch", "NLP", "Open source"],
+    links: [
+      { label: "GitHub", href: "https://github.com/georgiaray" },
+      { label: "Paper", href: "#" },
+    ],
+    status: "Active",
+  },
+  {
+    title: "Project Beta",
+    desc: "Placeholder: another project. What problem does it solve? Who is it for? What's interesting or novel about the approach?",
+    tags: ["Python", "API", "Data viz"],
+    links: [
+      { label: "GitHub", href: "https://github.com/georgiaray" },
+      { label: "Demo", href: "/demos" },
+    ],
+    status: "Active",
+  },
+  {
+    title: "Side thing",
+    desc: "Placeholder: a smaller or older project — could be a tool, a dataset, a script, or a weekend hack that turned into something.",
+    tags: ["TypeScript", "CLI"],
+    links: [
+      { label: "GitHub", href: "https://github.com/georgiaray" },
+    ],
+    status: "Archived",
+  },
+];
+---
+
+<SidebarLayout title="Projects" description="ML work and side projects by Georgia Ray.">
+  <section class="mb-16">
+    <h1 class="font-serif text-4xl font-bold mb-2" style="color: var(--foreground);">Projects</h1>
+    <p class="text-base" style="color: var(--muted-foreground);">ML work, side projects, and things I've built for fun or research.</p>
+  </section>
+
+  <div class="grid gap-6">
+    {projects.map((project, i) => (
+      <article
+        class="fade-up rounded-xl p-6 border transition-shadow hover:shadow-md"
+        style="background-color: var(--card); border-color: var(--border);"
+      >
+        <div class="flex items-start justify-between gap-4 mb-3">
+          <h2 class="font-serif text-xl font-semibold" style="color: var(--foreground);">{project.title}</h2>
+          <span
+            class="text-xs px-2 py-0.5 rounded-full font-medium shrink-0 mt-1"
+            style={project.status === "Active"
+              ? "background-color: var(--accent); color: var(--accent-foreground);"
+              : "background-color: var(--muted); color: var(--muted-foreground);"}
+          >
+            {project.status}
+          </span>
+        </div>
+        <p class="text-sm leading-relaxed mb-4" style="color: var(--muted-foreground);">{project.desc}</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {project.tags.map(tag => (
+            <span class="text-xs px-2 py-0.5 rounded-full font-medium" style="background-color: var(--secondary); color: var(--secondary-foreground);">{tag}</span>
+          ))}
+        </div>
+        <div class="flex gap-4">
+          {project.links.map(link => (
+            <a
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              class="text-sm font-medium underline underline-offset-2 transition-opacity hover:opacity-70"
+              style="color: var(--primary);"
+            >
+              {link.label} →
+            </a>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</SidebarLayout>
