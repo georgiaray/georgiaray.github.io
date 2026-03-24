@@ -196,6 +196,9 @@ h3, h4 {
 .hero-intro {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .hero-intro__row {
@@ -208,7 +211,7 @@ h3, h4 {
 .hero-intro__aside {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   flex: 0 0 auto;
   width: fit-content;
   max-width: 100%;
@@ -250,16 +253,16 @@ h3, h4 {
   flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.35rem;
-  margin-top: 0.75rem;
+  margin-top: 2.5rem;
   width: 100%;
-  max-width: min(100%, max(280px, 38vw));
+  max-width: none;
   position: relative;
   z-index: 3;
   font-size: clamp(0.78rem, 1.35vw, 1.05rem);
   line-height: 1.35;
-  text-align: center;
+  text-align: left;
 }
 
 .hero-intro__meta li:not(:last-child)::after {
@@ -283,7 +286,7 @@ h3, h4 {
   .hero-intro__aside {
     order: 2;
     margin-left: auto;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .hero-intro__photo {
@@ -294,7 +297,12 @@ h3, h4 {
 
   .hero-intro__meta {
     max-width: 100%;
+    margin-top: 2rem;
+    justify-content: flex-start;
+    text-align: left;
     font-size: clamp(0.72rem, 2.8vw, 0.95rem);
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
   }
 }
 
