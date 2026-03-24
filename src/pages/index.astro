@@ -15,20 +15,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <h1 class="hero-intro__text" style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; margin: 0;">
                 Georgia<br />Ray
               </h1>
-              <figure class="hero-intro__photo" style="margin: 0;">
-                <img
-                  src="/photos/prof-pic-recolored.jpeg"
-                  alt="Portrait of Georgia Ray"
-                  loading="eager"
-                  decoding="async"
-                />
-              </figure>
+              <div class="hero-intro__aside">
+                <figure class="hero-intro__photo" style="margin: 0;">
+                  <img
+                    src="/photos/prof-pic-recolored.jpeg"
+                    alt="Portrait of Georgia Ray"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </figure>
+                <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; margin: 0; color: var(--muted-foreground);">
+                  <li>Machine learning engineer</li>
+                  <li>Climate researcher</li>
+                  <li>PhD student</li>
+                </ul>
+              </div>
             </div>
-            <ul class="hero-intro__meta" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; list-style: none; padding: 0; margin: 0; color: var(--muted-foreground);">
-              <li>Machine learning engineer</li>
-              <li>Climate researcher</li>
-              <li>PhD student</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -169,7 +171,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 },
                 {
                   period: "2023 – 2024",
-                  title: "Master's Degree",
+                  title: "Master's Degree (with distinction)",
                   org: "Imperial College London",
                   desc: "Independent research project applying remote sensing and aerial imagery to carbon-accounting tasks.",
                 },
@@ -428,9 +430,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="col-5">
           <p class="animate" style="font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; line-height: 1.9; color: var(--muted-foreground); margin-bottom: 2rem;">
             I'm always happy to chat about research, ML engineering, or anything I've written about.
-            Feel free to email me at <a href="mailto:georgia.ray@chancerylaneproject.org" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">georgia.ray@chancerylaneproject.org</a>,
-            find me on <a href="https://github.com/georgiaray" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">GitHub</a>,
-            or on <a href="https://twitter.com/georgiaray" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">Twitter</a>.
+            Feel free to email me at <a href="mailto:99gray@gmail.com" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">99gray@gmail.com</a>,
+            find me on <a href="https://github.com/georgiaray" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">GitHub</a>
+            or <a href="https://www.linkedin.com/in/georgia-ray-b447ab142/" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">LinkedIn</a>,
+            and see my <a href="https://profiles.imperial.ac.uk/georgia.ray23" target="_blank" rel="noopener noreferrer" style="color: var(--foreground); text-decoration: underline; text-underline-offset: 3px;">Imperial profile</a>.
           </p>
           <p class="animate" style="font-size: 0.8rem; color: var(--muted-foreground);">
             © {new Date().getFullYear()} Georgia Ray
