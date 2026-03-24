@@ -255,7 +255,7 @@ h3, h4 {
   align-items: center;
   justify-content: flex-start;
   gap: 0.35rem;
-  margin-top: 15rem;
+  margin-top: 5rem;
   width: 100%;
   max-width: none;
   position: relative;
@@ -297,7 +297,7 @@ h3, h4 {
 
   .hero-intro__meta {
     max-width: 100%;
-    margin-top: 11rem;
+    margin-top: 3.75rem;
     justify-content: flex-start;
     text-align: left;
     font-size: clamp(0.72rem, 2.8vw, 0.95rem);
