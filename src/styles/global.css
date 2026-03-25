@@ -169,7 +169,7 @@ h3, h4 {
 .section {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  overflow: hidden;
+  overflow: clip; /* clip preserves visual clipping without creating a scroll container, which would break position:sticky */
   position: relative;
 }
 
@@ -368,6 +368,18 @@ h3, h4 {
   font-weight: 400;
   color: var(--foreground);
   text-align: right;
+  /* Stick just below the 4rem nav as the section scrolls */
+  position: sticky;
+  top: 4.5rem;
+  /* Align to the top of its grid cell so it starts flush with section content */
+  align-self: start;
+}
+
+/* On small screens sticky label doesn't make sense — let it scroll normally */
+@media (max-width: 1023px) {
+  .section-label {
+    position: static;
+  }
 }
 
 /* ─── Header ───────────────────────────────────────── */
